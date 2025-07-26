@@ -1,60 +1,67 @@
-﻿using System;
-using System.Configuration;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 using System.Windows.Forms;
-using FontAwesome.Sharp;
-using MySql.Data.MySqlClient;
 
-
-
-namespace SOL_SGE
+namespace SOL_SGE.Login
 {
     public partial class Login : Form
     {
-        // public object ConfigurationManager { get; private set; }
-
         public Login()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
             //instanciamos en variables los contenedores de los textos
-            string email = txtEmail.Text.Trim();
-            string password = txtContraseña.Text.Trim();
+            string email = txtEmail.Text.Trim().ToLower();
+            string password = txtPassword.Text.Trim();
+
+
+            if (password.Length < 4 || password.Length > 12)
+            {
+                MessageBox.Show("La contraseña debe ser como minimo de 4 caracteres y no mas de 12  caracteres.",
+                    "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             // llamamos al metodo de validación de credenciales y los instanciamos en variables con su respectivo parametro
-            string username = ValidateCredentials(email, password);
+            var (username, rol) = ValidateCredentials(email, password);
 
 
             if (!string.IsNullOrEmpty(username))
             {
 
-                MessageBox.Show($"Bienvenido: {username}!", "Login Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Service.UserSesion.IniciarSesion(username, rol, email);
 
-                DashUser.DashUserControl frm = new DashUser.DashUserControl(email);
+                string welcomeMesssage = $"Bienvenido {(string.IsNullOrEmpty(rol) ? "" : rol + ": ")}{username}!"; ;
+
+                MessageBox.Show(welcomeMesssage, "Login Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DashUser.DashUserControl frm = new DashUser.DashUserControl(email, rol);
                 frm.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Acceso no autorizado. Verifica tus datos.");
+                MessageBox.Show("Acceso no autorizado. Verifica tus datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
 
-        private string ValidateCredentials(string email, string password)
+        private (string username, string rol) ValidateCredentials(string email, string password)
         {
             string nombre = null;
+            string rol = null;
 
             string cn = @"server= localhost; userid = root; password= 1234; database = nueva_conexion";
 
@@ -63,7 +70,7 @@ namespace SOL_SGE
                 using (MySqlConnection con = new MySqlConnection(cn))
                 {
                     con.Open();
-                    string query = "SELECT nombre_usuario FROM usuarios WHERE email = @email AND passwordU = @password";
+                    string query = "SELECT username, rol FROM usuarios WHERE correo_usuario = @email AND contraseña_usuario_hash = @password";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
@@ -75,7 +82,8 @@ namespace SOL_SGE
                         {
                             if (reader.Read())
                             {
-                                nombre = reader.GetString("nombre_usuario");
+                                nombre = reader.GetString("username");
+                                rol = reader.GetString("rol");
                             }
                         }
                     }
@@ -87,14 +95,38 @@ namespace SOL_SGE
                 MessageBox.Show("Acceso no autorizado. " + ex.Message);
             }
 
-            return nombre;
+            return (nombre, rol);
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-       
+        private void linkWeb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+
+                string url = "https://www.youtube.com/@TayluSs";
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true // Esto es necesario para abrir enlaces en el navegador predeterminado
+                });
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error al abrir el enlace:\n" + ex.Message,
+                    "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

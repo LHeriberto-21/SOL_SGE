@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SOL_SGE.DashUser
+namespace SOL_SGE.DashAdmin
 {
     public partial class SMS : Form
     {
@@ -40,5 +40,7 @@ namespace SOL_SGE.DashUser
             this.Close();
 
         }
+
+        
     }
 }

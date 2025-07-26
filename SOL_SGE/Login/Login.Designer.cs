@@ -1,4 +1,4 @@
-﻿namespace SOL_SGE
+﻿namespace SOL_SGE.Login
 {
     partial class Login
     {
@@ -28,188 +28,164 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_exit = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
+            this.linkWeb = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.panel1.Controls.Add(this.btn_exit);
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 30);
+            this.panel1.Size = new System.Drawing.Size(698, 31);
             this.panel1.TabIndex = 0;
             // 
-            // btn_exit
+            // btnClose
             // 
-            this.btn_exit.FlatAppearance.BorderSize = 0;
-            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exit.Image = global::SOL_SGE.Properties.Resources.Close;
-            this.btn_exit.Location = new System.Drawing.Point(652, 5);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(25, 22);
-            this.btn_exit.TabIndex = 0;
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(669, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(29, 23);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Controls.Add(this.linkLabel1);
-            this.panel2.Controls.Add(this.btnLogin);
-            this.panel2.Controls.Add(this.txtContraseña);
-            this.panel2.Controls.Add(this.lblPassword);
-            this.panel2.Controls.Add(this.lblWelcome);
+            this.panel2.Controls.Add(this.linkWeb);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.txtPassword);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtEmail);
-            this.panel2.Controls.Add(this.lblEmail);
-            this.panel2.Location = new System.Drawing.Point(322, 28);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnIniciarSesion);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(349, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(358, 372);
+            this.panel2.Size = new System.Drawing.Size(349, 355);
             this.panel2.TabIndex = 1;
             // 
-            // linkLabel1
+            // linkWeb
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(113, 262);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(137, 13);
-            this.linkLabel1.TabIndex = 11;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Se te olvidó tu contraseña?";
+            this.linkWeb.AutoSize = true;
+            this.linkWeb.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.linkWeb.Location = new System.Drawing.Point(106, 231);
+            this.linkWeb.Name = "linkWeb";
+            this.linkWeb.Size = new System.Drawing.Size(137, 13);
+            this.linkWeb.TabIndex = 3;
+            this.linkWeb.TabStop = true;
+            this.linkWeb.Text = "Se te olvidó tu contraseña?";
+            this.linkWeb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWeb_LinkClicked);
             // 
-            // btnLogin
+            // label3
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(128, 292);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(107, 28);
-            this.btnLogin.TabIndex = 10;
-            this.btnLogin.Text = "Iniciar sesión";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(102, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 29);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Bienvenido";
             // 
-            // txtContraseña
+            // txtPassword
             // 
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(74, 214);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(214, 26);
-            this.txtContraseña.TabIndex = 8;
-            this.txtContraseña.UseSystemPasswordChar = true;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(68, 191);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(212, 26);
+            this.txtPassword.TabIndex = 2;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // lblPassword
+            // label2
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(135, 191);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(92, 20);
-            this.lblPassword.TabIndex = 7;
-            this.lblPassword.Text = "Contraseña";
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(106, 59);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(150, 31);
-            this.lblWelcome.TabIndex = 6;
-            this.lblWelcome.Text = "Bienvenido";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(128, 155);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Contraseña";
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(74, 142);
+            this.txtEmail.Location = new System.Drawing.Point(68, 112);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(214, 26);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.Size = new System.Drawing.Size(212, 26);
+            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // lblEmail
+            // label1
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(112, 119);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(138, 20);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "Correo o matrícula";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(146, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Correo";
             // 
-            // panel3
+            // btnIniciarSesion
             // 
-            this.panel3.Controls.Add(this.pictureBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 30);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(324, 370);
-            this.panel3.TabIndex = 4;
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
+            this.btnIniciarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarSesion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(113, 268);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(122, 34);
+            this.btnIniciarSesion.TabIndex = 4;
+            this.btnIniciarSesion.Text = "Iniciar sesión";
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SOL_SGE.Properties.Resources.AJESHANEW;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(324, 370);
+            this.pictureBox1.Size = new System.Drawing.Size(349, 355);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(680, 400);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 400);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(698, 386);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SS";
+            this.Text = "Login";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,18 +193,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkWeb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnIniciarSesion;
     }
 }
-

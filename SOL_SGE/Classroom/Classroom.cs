@@ -16,5 +16,12 @@ namespace SOL_SGE.Classroom
         {
             InitializeComponent();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+
+       
     }
 }
